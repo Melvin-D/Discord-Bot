@@ -10,7 +10,7 @@ import asyncio
 from discord.ext import commands
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from discord.ext import commands
 from discord.utils import get
 from pydrive.auth import GoogleAuth
@@ -129,8 +129,8 @@ async def wikisummary(ctx, wikiquery: str):
 #     birthday_greetings = ['bbday' , 'haha']
 
 
-#     ***REMOVED*** = ['***REMOVED***']
-#     ***REMOVED*** = ['***REMOVED***', '***REMOVED***']
+#     ***REMOVED*** = ['shit']
+#     ***REMOVED*** = ['nig', 'coon']
 #     for information in ***REMOVED***:
 #         if information in message.content:
 #             await message.channel.send("Please ***REMOVED*** " + str(message.author.mention))
@@ -142,7 +142,7 @@ async def wikisummary(ctx, wikiquery: str):
 # async def on_message(message):
 #     if message.author == bot.user:
 #         return
-#     ***REMOVED*** = ['***REMOVED***', '***REMOVED***']
+#     ***REMOVED*** = ['nig', 'negro']
 #     ***REMOVED*** = '***REMOVED***'
 #     author = message.author.id
 
