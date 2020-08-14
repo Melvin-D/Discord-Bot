@@ -129,8 +129,8 @@ async def wikisummary(ctx, wikiquery: str):
 #     birthday_greetings = ['bbday' , 'haha']
 
 
-#     ***REMOVED*** = ['shit']
-#     ***REMOVED*** = ['nig', 'coon']
+#     ***REMOVED*** = ['***REMOVED***']
+#     ***REMOVED*** = ['***REMOVED***', '***REMOVED***']
 #     for information in ***REMOVED***:
 #         if information in message.content:
 #             await message.channel.send("Please ***REMOVED*** " + str(message.author.mention))
@@ -142,7 +142,7 @@ async def wikisummary(ctx, wikiquery: str):
 # async def on_message(message):
 #     if message.author == bot.user:
 #         return
-#     ***REMOVED*** = ['nig', 'negro']
+#     ***REMOVED*** = ['***REMOVED***', '***REMOVED***']
 #     ***REMOVED*** = '***REMOVED***'
 #     author = message.author.id
 
