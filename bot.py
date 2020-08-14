@@ -52,7 +52,7 @@ async def on_ready():
         if guild.name == GUILD:
             break
 
-    print(f'{bot.user.name} has connected to Discord!')
+    print(f'{bot.user.name} has connected to Discords!')
     print(
         f'{bot.user.name} is connected to the following server(s):\n'
         f'{guild.name}(id: {guild.id}')
