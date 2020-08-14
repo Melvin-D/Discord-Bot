@@ -1,0 +1,7 @@
+git+https://github.com/Rapptz/discord.py
+PyDrive
+youtube_dl
+selenium
+asyncio
+aiohttp
+wikipedia-api
