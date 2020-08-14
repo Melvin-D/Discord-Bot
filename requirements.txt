@@ -6,4 +6,4 @@ asyncio
 aiohttp
 wikipedia-api
 webdriver-manager
-dotenv
+
