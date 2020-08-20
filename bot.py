@@ -133,39 +133,3 @@ bot.run(TOKEN)
 #     #         file1.SetContentFile('gio.png')
 #     #         file1.Upload()
 #     await bot.process_commands(message)
-
-# @bot.event      
-# async def on_message(message):
-#     if message.author == bot.user:
-#         return
-
-#     birthday_greetings = ['bbday' , 'haha']
-
-
-#     ***REMOVED*** = ['***REMOVED***']
-#     ***REMOVED*** = ['***REMOVED***', '***REMOVED***']
-#     for information in ***REMOVED***:
-#         if information in message.content:
-#             await message.channel.send("Please ***REMOVED*** " + str(message.author.mention))
-#     for information in ***REMOVED***:
-#         if information in message.content:
-#             await message.channel.send("Please ***REMOVED*** " + str(message.author.mention))
-# bot.counter = {}
-# @bot.event
-# async def on_message(message):
-#     if message.author == bot.user:
-#         return
-#     ***REMOVED*** = ['***REMOVED***', '***REMOVED***']
-#     ***REMOVED*** = '***REMOVED***'
-#     author = message.author.id
-
-#     if author not in bot.counter:
-#         bot.counter[author] = 0
-
-    
-
-#     for information in ***REMOVED***:
-#         if information in message.content:
-#             await message.channel.send(f"{message.author.mention} +1")
-#             bot.counter[author] += 1
-#     await bot.process_commands(message)

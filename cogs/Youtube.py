@@ -11,7 +11,10 @@ class Youtube(commands.Cog):
         self.bot = bot
 
     @commands.command(name='play')
-    async def playFromYT(self, ctx, url):
+    async def playFromYT(self, ctx, url = None):
+        if url is None:
+            await ctx.send(f"{ctx.author.mention} !play [YouTube URL]")
+            return
         options = {
                 "postprocessors":[{
                     "key": "FFmpegExtractAudio", # download audio only
@@ -21,6 +24,7 @@ class Youtube(commands.Cog):
                 "format": "bestaudio/best",
                 "outtmpl": "song.mp3" # downloaded file name
             }
+
         with youtube_dl.YoutubeDL(options) as ydl:
             ydl.download([url])
         if ctx.author.voice is None:
@@ -35,6 +39,16 @@ class Youtube(commands.Cog):
         server = ctx.message.guild.voice_client
         await server.disconnect()
         os.remove("song.mp3")
+
+    @commands.command(name='pause')
+    async def pause(self,ctx):
+        server = ctx.message.guild.voice_client
+        server.pause()
+        
+    @commands.command(name='resume')
+    async def resume(self,ctx):
+        server = ctx.message.guild.voice_client
+        server.resume()
 
 def setup(bot):
     bot.add_cog(Youtube(bot))
