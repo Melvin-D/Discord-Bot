@@ -10,17 +10,17 @@ import asyncio
 from discord.ext import commands
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 from discord.ext import commands
 from discord.utils import get
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
 from datetime import datetime
 
-# load_dotenv()
+load_dotenv()
 TOKEN = os.environ['DISCORD_TOKEN']
-# TOKEN = os.getenv('DISCORD_TOKEN')
-# GUILD = os.getenv('DISCORD_GUILD')
+TOKEN = os.getenv('DISCORD_TOKEN')
+GUILD = os.getenv('DISCORD_GUILD')
 
 
 gauth = GoogleAuth()
@@ -36,11 +36,6 @@ gauth.SaveCredentialsFile("creds.txt")
 
 
 bot = commands.Bot(command_prefix='!')
-
-
-
-
-
 
 
 now = datetime.now()
@@ -83,7 +78,25 @@ async def wikisummary(ctx, wikiquery: str):
     wiki_wiki = wikipediaapi.Wikipedia('en')
     page_py = wiki_wiki.page(wikiquery)
     await ctx.send(page_py.summary[0:300])
-   
+
+@bot.command(name='reload')
+async def reload(ctx, cog: str):
+        try: 
+            for filename in os.listdir('./cogs'):
+                if filename.endswith('.py') and not filename.startswith("_"):
+                    bot.unload_extension(f'cogs.{filename[:-3]}')
+                    bot.load_extension(f'cogs.{filename[:-3]}')
+        except Exception as e:
+            await ctx.send("Couldnt reload")
+            return
+        await ctx.send("Successfully reloaded")
+
+for filename in os.listdir('./cogs'):
+    if filename.endswith('.py'):
+        bot.load_extension(f'cogs.{filename[:-3]}')
+
+bot.run(TOKEN)
+
 
 
 
@@ -156,9 +169,3 @@ async def wikisummary(ctx, wikiquery: str):
 #             await message.channel.send(f"{message.author.mention} +1")
 #             bot.counter[author] += 1
 #     await bot.process_commands(message)
-
-for filename in os.listdir('./cogs'):
-    if filename.endswith('.py'):
-        bot.load_extension(f'cogs.{filename[:-3]}')
-
-bot.run(TOKEN)

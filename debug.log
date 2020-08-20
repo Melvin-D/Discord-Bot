@@ -2,3 +2,4 @@
 [0802/135820.680:ERROR:exception_snapshot_win.cc(98)] thread ID 4448 not found in process
 [0802/163107.217:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
 [0802/163107.217:ERROR:exception_snapshot_win.cc(98)] thread ID 7412 not found in process
+[0816/012648.703:ERROR:prune_crash_reports.cc(35)] PruneCrashReportDatabase: Failed to get pending reports
