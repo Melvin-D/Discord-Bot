@@ -13,9 +13,9 @@ class AudioClips(commands.Cog):
             await ctx.send(f"{ctx.author.mention} You need to be in a voice channel to do that")
             return None
         
-        path = f'C:/Users/Melvin/Desktop/Discord Python Bot/AudioClips/{ctx.message.content[1:]}.mp3'
+        path = f"C:/Users/Melvin/Desktop/Discord Python Bot/AudioClips/{ctx.message.content[1:]}.mp3"
         if os.path.isfile(path) == False:
-            await ctx.send(f"{ctx.author.emtion} Not a valid command")
+            await ctx.send(f"{ctx.author.mention} Not a valid command")
             return
 
         channel = ctx.author.voice.channel

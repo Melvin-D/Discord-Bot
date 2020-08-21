@@ -42,11 +42,13 @@ class Youtube(commands.Cog):
 
     @commands.command(name='pause')
     async def pause(self,ctx):
+        await ctx.send("YouTube clip paused")
         server = ctx.message.guild.voice_client
         server.pause()
         
     @commands.command(name='resume')
     async def resume(self,ctx):
+        await ctx.send("Resuming YouTube clip")
         server = ctx.message.guild.voice_client
         server.resume()
 

@@ -6,6 +6,7 @@ from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 
 
+#Initalize a hidden chrome menu 
 op = webdriver.ChromeOptions()
 op.add_argument('headless')
 op.add_argument("--window-size=1240,800")
@@ -15,6 +16,7 @@ class AramBuilds(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+    #Searches for the users input on a website
     @commands.command(name='build', help = "Search for ARAM builds in League of Legends")
     async def screenshotsite(self, ctx, screenquery:str):
         driver.get(f'https://murderbridge.com/Champion/{screenquery}')

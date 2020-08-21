@@ -1,4 +1,6 @@
 # bot.py
+# Author: Melvin Dharan
+
 
 import os
 import wikipediaapi
@@ -11,18 +13,18 @@ from discord.ext import commands
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from dotenv import load_dotenv
-from discord.ext import commands
 from discord.utils import get
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
 from datetime import datetime
 
+#Loads unique bot ID from .env file
 load_dotenv()
-TOKEN = os.environ['DISCORD_TOKEN']
 TOKEN = os.getenv('DISCORD_TOKEN')
 GUILD = os.getenv('DISCORD_GUILD')
 
 
+#Declarations for Google Drive directory
 gauth = GoogleAuth()
 gauth.LoadCredentialsFile("creds.txt")
 if gauth.credentials is None:
@@ -34,13 +36,13 @@ else:
 drive = GoogleDrive(gauth)
 gauth.SaveCredentialsFile("creds.txt")
 
-
+#Bot will only listen to commands starting with the prefix
 bot = commands.Bot(command_prefix='!')
-
 
 now = datetime.now()
 
 
+#When bot starts, check if it's connected to any servers and list members in server
 @bot.event
 async def on_ready():
     for guild in bot.guilds:
@@ -52,13 +54,14 @@ async def on_ready():
         f'{bot.user.name} is connected to the following server(s):\n'
         f'{guild.name}(id: {guild.id}')
     
-    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="pebnis hahha"))
+    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="server chat"))
 
     members = '\n - ' .join([member.name for member in guild.members])
     print (f'Server Members: \n - {members}')
     print(discord.__version__)
     
 
+#Google drive commands
 @bot.command(name='upload')
 async def uploadfile(ctx):
     file1 = drive.CreateFile({'title': 'Hello.txt'})
@@ -72,13 +75,14 @@ async def uploadfile(ctx):
     file1.Upload()
     
     
-
+#Search Wikipedia for an article
 @bot.command(name='wiki', help = "Search wikipedia")
 async def wikisummary(ctx, wikiquery: str):
     wiki_wiki = wikipediaapi.Wikipedia('en')
     page_py = wiki_wiki.page(wikiquery)
     await ctx.send(page_py.summary[0:300])
 
+#Reloads a specific cog for hot-reloading functions without needing to restart entire bot
 @bot.command(name='reload')
 async def reload(ctx, cog: str):
         try: 
@@ -91,6 +95,8 @@ async def reload(ctx, cog: str):
             return
         await ctx.send("Successfully reloaded")
 
+
+#Scans file system for all cogs in directory and loads them
 for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):
         bot.load_extension(f'cogs.{filename[:-3]}')
