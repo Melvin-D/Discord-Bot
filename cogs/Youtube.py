@@ -26,7 +26,7 @@ class Youtube(commands.Cog):
         options = {
                 "postprocessors":[{
                     "key": "FFmpegExtractAudio", # download audio only
-                    "preferredcodec": "mp3", # other acceptable types "wav" etc.
+                    "preferredcodec": "mp3", # other acceptable types "wav" etc
                     "preferredquality": "192" # 192kbps audio
                 }],
                 "format": "bestaudio/best",
