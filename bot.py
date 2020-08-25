@@ -58,7 +58,7 @@ async def on_ready():
 
     members = '\n - ' .join([member.name for member in guild.members])
     print (f'Server Members: \n - {members}')
-    print(discord.__version__)
+    print(f"Discord version: {discord.__version__}")
     
 
 #Google drive commands

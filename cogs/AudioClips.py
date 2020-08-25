@@ -83,6 +83,27 @@ class AudioClips(commands.Cog):
         sleepTime = 5
         await self.checkUser(ctx, sleepTime) 
 
+    @commands.command(name='YOO', help = "YOO")
+    async def playYOO(self,ctx):
+        sleepTime = 2.8
+        await self.checkUser(ctx, sleepTime) 
+
+    @commands.command(name='ASMR', help = "asmr")
+    async def playASMR(self,ctx):
+        sleepTime = 6.9
+        await ctx.send("<:EatTheTestie:708235731700547605>")
+        await self.checkUser(ctx, sleepTime) 
+
+    @commands.command(name='ASMReact', help = "asmract")
+    async def playASMReact(self,ctx):
+        sleepTime = 5
+        await self.checkUser(ctx, sleepTime) 
+
+    @commands.command(name='bass', help = "BBBBBBB")
+    async def playBass(self,ctx):
+        sleepTime = 1.5
+        await self.checkUser(ctx, sleepTime) 
+
     @commands.command(name='moan', help = "Moan")
     async def playMoan(self,ctx):
         sleepTime = 6
@@ -96,6 +117,11 @@ class AudioClips(commands.Cog):
     @commands.command(name='bruh', help = "Epic")
     async def playBruh(self,ctx):
         sleepTime = 2
+        await self.checkUser(ctx, sleepTime)
+    
+    @commands.command(name='bruhH', help = "EpicH")
+    async def playBruhH(self,ctx):
+        sleepTime = 1.5
         await self.checkUser(ctx, sleepTime)
 
     @commands.command(name='matt', help = "bapcsalescanada")
